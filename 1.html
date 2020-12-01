@@ -15,50 +15,62 @@
         {
           x.style.background = "#FFFFFF";
         }         
-         //fonction qui permet le calcul dans la calculatrice
+          //fonction qui permet le calcul dans la calculatrice
          function calculer() 
          { 
              let a = document.getElementById("output").value 
              let b = eval(a) 
              document.getElementById("output").value = b 
          } 
-         //fonction qui affiche la valeur dans la barre d'entrée 
+          //fonction qui affiche la valeur du bouton dans la barre d'entrée 
          function afficher(val) 
          { 
              document.getElementById("output").value+=val 
          } 
-         //fonction qui efface tout ce qu'il y a d'ecris dans la barre d'entrée  
+          //fonction qui efface tout ce qu'il y a d'ecris dans la barre d'entrée  
          function effacer() 
          { 
              document.getElementById("output").value = "" 
          }
          { 
-          //fonction qui modifie la couleur de fond de la barre d'entrée 
+          //fonction qui modifie la couleur de fond du formulaire
          
          function couleur(x) {
             x.style.background = "#00CED1";
           } 
          }
+          //Affiche une alerte quand on charge la page
+          function intro() 
+         { 
+             alert("salut");
+         } 
+          //fonction qui affiche un message si on utilise une touche clavier
+         function evenement_clavier() 
+         {
+             alert("Tu as appuyé sur une touche clavier ");
+         }
       </script>
       <!-- définir un style dans le document HTML -->
       <style>
-        /* définir la largeur du boutton */
+        /* définir la largeur du bouton */
         
         td button{width:100%}
       </style>
    </head> 
-   <body> 
+   <!--  onload... Pour afficher l'alerte-->
+   <body onload = intro()> 
+
        <!--ouvre le tableau et definis la largeur des bords exterieurs-->
       <table border="1">
           <!-- a chaque balise <tr> on change de ligne-->
          <tr> 
-             <!--colspan pour la taille de la barre d'entrée et mettre l'input -->
-            <td colspan="3"><input id="output" onfocus="couleur(this)"/></td> 
-            <!-- on change de case dans la ligne a chaque balise td-->
+             <!--Ici on personnalise la barre d'entrée-->
+            <td colspan="3"><input id="output" onfocus="couleur(this)" onkeydown = "evenement_clavier()"/></td> 
+            <!-- on change de case dans la ligne à chaque balise td-->
             <!--on creer le bouton 'C' qui va permettre d'effacer tout ce qui est ecris-->
             <td><button onclick="effacer()">c</button></td> 
          </tr> 
-         <!-- on creer les bouton avec le chiffres et les signes -->
+         <!-- on creer les boutons avec les chiffres et les signes -->
          <tr> 
             <td><button onclick="afficher('1')">1</button></td> 
             <td><button onclick="afficher('2')">2</button></td> 
